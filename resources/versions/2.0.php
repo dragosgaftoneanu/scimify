@@ -40,7 +40,7 @@ class SCIM20
 		echo $this->getUser($userID, 1);
 	}
 	
-	public function getUser($userID, $isIncluded='', $returnHeader='')
+	public function getUser($userID, $isIncluded='')
 	{
 		if(!$this->db->userExists($userID, "2.0"))
 			exit($this->throwError(404, "This user does not exist."));
@@ -142,11 +142,8 @@ class SCIM20
 			"location" => (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . str_replace("index.php", "", $_SERVER['SCRIPT_NAME']) . "scim/v1/Users/" . $userID
 		);
 
-		if($returnHeader != '')
-			header("Content-Type: application/json", true, $returnHeader);
-		else
-			if($isIncluded == '')
-				header("Content-Type: application/json", true, 200);
+        if($isIncluded == '')
+            header("Content-Type: application/json", true, 200);
 		
 		if($isIncluded != '')
 			return preg_replace('/[\x00-\x1F\x7F]/u', '', json_encode($payload, JSON_UNESCAPED_SLASHES));
@@ -450,7 +447,7 @@ class SCIM20
 	}
 	
 	
-	public function getGroup($groupID, $isIncluded='', $returnHeader='')
+	public function getGroup($groupID, $isIncluded='')
 	{
 		if(!$this->db->groupExists($groupID, "2.0"))
 			exit($this->throwError(404, "This group does not exist."));
@@ -497,11 +494,8 @@ class SCIM20
 			"location" => (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . str_replace("index.php", "", $_SERVER['SCRIPT_NAME']) . "scim/v1/Groups/" . $groupID
 		);
 
-		if($returnHeader != '')
-			header("Content-Type: application/json", true, $returnHeader);
-		else
-			if($isIncluded == '')
-				header("Content-Type: application/json", true, 200);
+        if($isIncluded == '')
+            header("Content-Type: application/json", true, 200);
 		
 		if($isIncluded != '')
 			return preg_replace('/[\x00-\x1F\x7F]/u', '', json_encode($payload, JSON_UNESCAPED_SLASHES));
