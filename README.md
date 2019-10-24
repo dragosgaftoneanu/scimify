@@ -11,7 +11,7 @@ scimify is a PHP application that supports both SCIM 1.1 and SCIM 2.0 servers wi
 ## Installation
 * Download scimify and upload it in the document root of your local web server
 * Create a MySQL database and add the configuration details in resources/config.php
-* Use `ngrok http 80` to put the web server online and link the ngrok URL with Okta
+* Use `ngrok http <local web server port>` (eg. `ngrok http 80`) to put the web server online and link the ngrok URL with Okta
 
 ## Documentation
 If you would like to find out more details about the methods used, check out the following wiki articles:
