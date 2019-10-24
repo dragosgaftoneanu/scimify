@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * scimify
+ * Author: Dragos Gaftoneanu <dragos.gaftoneanu@okta.com>
+ * 
+ * Disclaimer: This SCIM server was built in order to simulate and troubleshoot different SCIM use-cases and not to be used in production. The script is provided AS IS without warranty of any kind. Okta disclaims all implied warranties including, without limitation, any implied warranties of fitness for a particular purpose. We highly recommend testing scripts in a preview environment if possible.
+ */
 class SCIM11
 {
 	protected $db;
@@ -156,7 +161,7 @@ class SCIM11
 		
 		$payload['schemas'] = array('urn:scim:schemas:core:1.0');
 		$payload['totalResults'] = $totalUsers;
-		$payload['startIndex'] = 0;
+		$payload['startIndex'] = 1;
 		$payload['itemsPerPage'] = 0;
 		
 		if((int) $options['startIndex'] > 0)
@@ -184,7 +189,7 @@ class SCIM11
 		if($requestBody['active'] == "")
 			$requestBody['active'] = 1;
 		
-		if((int) $this->db->getUserID($requestBody['userName'], "1.1") > 0 && (int) $this->db->getUserID($requestBody['userName'], "1.1") != $userID)
+		if($this->db->getUserID($requestBody['userName'], "1.1") != $userID)
 			exit($this->throwError(400, "The username has already been taken by another user."));
 		
 		$this->db->deleteResourceSchemas($userID);
@@ -214,7 +219,7 @@ class SCIM11
 		$userAttributes = $this->db->getResourceAttributes($userID);
 		
 		if($requestBody['userName'] != "")
-			if((int) $this->db->getUserID($requestBody['userName'], "1.1") > 0 && (int) $this->db->getUserID($requestBody['userName'], "1.1") != $userID)
+			if($this->db->getUserID($requestBody['userName'], "1.1") != $userID)
 				exit($this->throwError(400, "The username has already been taken by another user."));
 		
 		foreach($requestBody as $key => $value)
@@ -501,7 +506,7 @@ class SCIM11
 		
 		$payload['schemas'] = array('urn:scim:schemas:core:1.0');
 		$payload['totalResults'] = $totalGroups;
-		$payload['startIndex'] = 0;
+		$payload['startIndex'] = 1;
 		$payload['itemsPerPage'] = 0;
 		
 		if((int) $options['startIndex'] > 0)
@@ -527,7 +532,7 @@ class SCIM11
 		$groupAttributes = $this->db->getResourceAttributes($groupID);
 		
 		if($requestBody['displayName'] != "")
-			if((int) $this->db->getGroupID($requestBody['displayName'], "1.1") > 0 && (int) $this->db->getGroupID($requestBody['displayName'], "1.1") != $groupID)
+			if($this->db->getGroupID($requestBody['displayName'], "1.1") != $groupID)
 				exit($this->throwError(400, "The group name is already present."));
 		
 		foreach($requestBody as $key => $value)
@@ -572,7 +577,7 @@ class SCIM11
 		$requestBody = json_decode($requestBody, 1);
 		
 		if($requestBody['displayName'] != "")
-			if((int) $this->db->getGroupID($requestBody['displayName'], "1.1") > 0 && (int) $this->db->getGroupID($requestBody['displayName'], "1.1") != $groupID)
+			if($this->db->getGroupID($requestBody['displayName'], "1.1") != $groupID)
 				exit($this->throwError(400, "The group name is already present."));
 		
 		$this->db->deleteResourceSchemas($groupID);
@@ -607,6 +612,7 @@ class SCIM11
 		$this->db->deleteResourceSchemas($groupID);
 		$this->db->deleteResourceAttributes($groupID);
 		$this->db->deleteResource($groupID);
+		$this->db->deleteAllGroupMembership($groupID);
 		header("Content-Type: application/json", true, 204);	
 	}
 	
@@ -629,9 +635,7 @@ class SCIM11
 	}
 	
 	public function showServiceProviderConfig()
-	{
-		echo $this->db->gen_uuid();
-		
+	{		
 		$payload = array();
 		
 		$payload['schemas'] = array("urn:scim:schemas:core:1.0");
