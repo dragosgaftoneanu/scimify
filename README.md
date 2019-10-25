@@ -1,5 +1,5 @@
 # scimify
-scimify is a PHP application that supports both SCIM 1.1 and SCIM 2.0 servers with operations for /Users, /Groups and /ServiceProviderConfig endpoints. This application was created based in order to test SCIM capabilities with Okta SCIM enabled applications.
+scimify is a PHP application that supports both SCIM 1.1 and SCIM 2.0 servers with operations for /Users, /Groups and /ServiceProviderConfig endpoints. This application was created in order to test SCIM capabilities with Okta SCIM enabled applications.
 
 ## Requirements
 * An Okta account, called an _organization_ (you can sign up for a free [integrator organization](https://www.okta.com/integrate/signup/))
