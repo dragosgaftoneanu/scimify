@@ -22,5 +22,6 @@ If you would like to find out more details about the methods used, check out the
 * [Methods ~ database queries](https://github.com/dragosgaftoneanu/scimify/wiki/Methods-~-database-queries)
 * [Methods ~ SCIM queries](https://github.com/dragosgaftoneanu/scimify/wiki/Methods-~-SCIM-queries)
 
-## Bugs?
-If you find a bug in the SCIM server, please open an issue in this repository and it will be further investigated.
+## Questions? Bugs?
+If you have a question about scimify, please check the Frequently Asked Questions page available [here](https://github.com/dragosgaftoneanu/scimify/wiki/Frequently-Asked-Questions). 
+If you don't find an answer or, if you discover a bug in the SCIM server, please open an issue in this repository.
