@@ -142,8 +142,8 @@ class SCIM20
 			"location" => (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . str_replace("index.php", "", $_SERVER['SCRIPT_NAME']) . "scim/v1/Users/" . $userID
 		);
 
-        if($isIncluded == '')
-            header("Content-Type: application/json", true, 200);
+		if($isIncluded == '')
+			header("Content-Type: application/json", true, 200);
 		
 		if($isIncluded != '')
 			return preg_replace('/[\x00-\x1F\x7F]/u', '', json_encode($payload, JSON_UNESCAPED_SLASHES));
@@ -494,8 +494,8 @@ class SCIM20
 			"location" => (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . str_replace("index.php", "", $_SERVER['SCRIPT_NAME']) . "scim/v1/Groups/" . $groupID
 		);
 
-        if($isIncluded == '')
-            header("Content-Type: application/json", true, 200);
+		if($isIncluded == '')
+			header("Content-Type: application/json", true, 200);
 		
 		if($isIncluded != '')
 			return preg_replace('/[\x00-\x1F\x7F]/u', '', json_encode($payload, JSON_UNESCAPED_SLASHES));

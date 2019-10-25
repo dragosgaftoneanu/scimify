@@ -41,7 +41,7 @@ class scimify
 		}elseif($_SERVER['REQUEST_METHOD'] == "DELETE" && preg_match('/^(.*)\/scim\/v1\/Groups\/[a-f0-9]{8}\-[a-f0-9]{4}\-[a-f0-9]{4}\-[a-f0-9]{4}\-[a-f0-9]{12}$/', @explode("?", $_SERVER['REQUEST_URI'])[0]))
 		{
 			$scim11->deleteGroup(explode("/", explode("?", $_SERVER['REQUEST_URI'])[0]) [count(explode("/", @explode("?", $_SERVER['REQUEST_URI'])[0]))-1]);		
-		}elseif($_SERVER['REQUEST_METHOD'] == "GET" && preg_match('/^(.*)\/scim\/v1\/ServiceProviderConfig$/', @explode("?", $_SERVER['REQUEST_URI'])[0])){
+		}elseif($_SERVER['REQUEST_METHOD'] == "GET" && preg_match('/^(.*)\/scim\/v1\/ServiceProviderConfigs?$/', @explode("?", $_SERVER['REQUEST_URI'])[0])){
 			$scim11->showServiceProviderConfig();
 			//
 		}elseif($_SERVER['REQUEST_METHOD'] == "GET" && preg_match('/^(.*)\/scim\/v2\/Users\/[a-f0-9]{8}\-[a-f0-9]{4}\-[a-f0-9]{4}\-[a-f0-9]{4}\-[a-f0-9]{12}$/', @explode("?", $_SERVER['REQUEST_URI'])[0]))
@@ -73,7 +73,7 @@ class scimify
 		}elseif($_SERVER['REQUEST_METHOD'] == "DELETE" && preg_match('/^(.*)\/scim\/v2\/Groups\/[a-f0-9]{8}\-[a-f0-9]{4}\-[a-f0-9]{4}\-[a-f0-9]{4}\-[a-f0-9]{12}$/', @explode("?", $_SERVER['REQUEST_URI'])[0]))
 		{
 			$scim20->deleteGroup(explode("/", explode("?", $_SERVER['REQUEST_URI'])[0]) [count(explode("/", @explode("?", $_SERVER['REQUEST_URI'])[0]))-1]);		
-		}elseif($_SERVER['REQUEST_METHOD'] == "GET" && preg_match('/^(.*)\/scim\/v2\/ServiceProviderConfig$/', @explode("?", $_SERVER['REQUEST_URI'])[0])){
+		}elseif($_SERVER['REQUEST_METHOD'] == "GET" && preg_match('/^(.*)\/scim\/v2\/ServiceProviderConfigs?$/', @explode("?", $_SERVER['REQUEST_URI'])[0])){
 			$scim20->showServiceProviderConfig();
 		}
 	}

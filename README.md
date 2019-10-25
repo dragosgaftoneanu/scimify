@@ -1,10 +1,8 @@
 # scimify
 scimify is a PHP application that supports both SCIM 1.1 and SCIM 2.0 servers with operations for /Users, /Groups and /ServiceProviderConfig endpoints. This application was created based in order to test SCIM capabilities with Okta SCIM enabled applications.
 
-:information_source: **Disclaimer:** This SCIM application was built in order to troubleshoot different SCIM use-cases and not to be used in production. The script is provided AS IS without warranty of any kind. Okta disclaims all implied warranties including, without limitation, any implied warranties of fitness for a particular purpose. We highly recommend testing scripts in a preview environment if possible.
-
 ## Requirements
-* An Okta account, called an _organization_ (you can sign up for a free [developer organization](https://developer.okta.com/signup/))
+* An Okta account, called an _organization_ (you can sign up for a free [integrator organization](https://www.okta.com/integrate/signup/))
 * A local web server that runs PHP 7.0 with MySQLi extension and mod_rewrite module
 * [ngrok](https://ngrok.com/) in order to inspect the requests and responses
 
@@ -14,6 +12,12 @@ scimify is a PHP application that supports both SCIM 1.1 and SCIM 2.0 servers wi
 * Use `ngrok http <local web server port>` (eg. `ngrok http 80`) to put the web server online and link the ngrok URL with Okta
 
 ## Documentation
+scimify works by saving the user's and group's attributes and schemas separately, returning it completely and correctly in the response. The body received from Okta is parsed as defined by SCIM specifications available [here](http://www.simplecloud.info/#Resources).
+
+You can find below the deployment guides for SCIM 1.1 and SCIM 2.0 using an integrator organization:
+* [Deploying scimify with SCIM 1.1 templates](https://github.com/dragosgaftoneanu/scimify/wiki/Deploying-scimify-with-SCIM-1.1-templates)
+* [Deploying scimify with SCIM 2.0 templates](https://github.com/dragosgaftoneanu/scimify/wiki/Deploying-scimify-with-SCIM-2.0-templates)
+
 If you would like to find out more details about the methods used, check out the following wiki articles:
 * [Methods ~ database queries](https://github.com/dragosgaftoneanu/scimify/wiki/Methods-~-database-queries)
 * [Methods ~ SCIM queries](https://github.com/dragosgaftoneanu/scimify/wiki/Methods-~-SCIM-queries)
