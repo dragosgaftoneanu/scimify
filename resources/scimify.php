@@ -3,7 +3,9 @@
  * scimify
  * Author: Dragos Gaftoneanu <dragos.gaftoneanu@okta.com>
  * 
- * Disclaimer: This SCIM server was built in order to simulate and troubleshoot different SCIM use-cases and not to be used in production. The script is provided AS IS without warranty of any kind. Okta disclaims all implied warranties including, without limitation, any implied warranties of fitness for a particular purpose. We highly recommend testing scripts in a preview environment if possible.
+ * Disclaimer: This SCIM server was built in order to simulate and troubleshoot different SCIM use-cases and not to be used in production. The script is provided AS IS 
+ * without warranty of any kind. Okta disclaims all implied warranties including, without limitation, any implied warranties of fitness for a particular purpose. We highly
+ * recommend testing scripts in a preview environment if possible.
  */
 class scimify
 {	
@@ -43,7 +45,10 @@ class scimify
 			$scim11->deleteGroup(explode("/", explode("?", $_SERVER['REQUEST_URI'])[0]) [count(explode("/", @explode("?", $_SERVER['REQUEST_URI'])[0]))-1]);		
 		}elseif($_SERVER['REQUEST_METHOD'] == "GET" && preg_match('/^(.*)\/scim\/v1\/ServiceProviderConfigs?$/', @explode("?", $_SERVER['REQUEST_URI'])[0])){
 			$scim11->showServiceProviderConfig();
-			//
+		}elseif(preg_match('/^(.*)\/scim\/v1\/(Users|Groups|ServiceProviderConfig|ServiceProviderConfigs)(.*)$/', @explode("?", $_SERVER['REQUEST_URI'])[0])){
+			$scim11->throwError(405, "The endpoint does not support the provided method.");
+		}elseif(preg_match('/^(.*)\/scim\/v1\/(.*)$/', @explode("?", $_SERVER['REQUEST_URI'])[0])){
+			$scim11->throwError(400, "The requested endpoint is not available.");
 		}elseif($_SERVER['REQUEST_METHOD'] == "GET" && preg_match('/^(.*)\/scim\/v2\/Users\/[a-f0-9]{8}\-[a-f0-9]{4}\-[a-f0-9]{4}\-[a-f0-9]{4}\-[a-f0-9]{12}$/', @explode("?", $_SERVER['REQUEST_URI'])[0]))
 		{
 			$scim20->getUser(explode("/", explode("?", $_SERVER['REQUEST_URI'])[0]) [count(explode("/", @explode("?", $_SERVER['REQUEST_URI'])[0]))-1], file_get_contents('php://input'));
@@ -75,6 +80,10 @@ class scimify
 			$scim20->deleteGroup(explode("/", explode("?", $_SERVER['REQUEST_URI'])[0]) [count(explode("/", @explode("?", $_SERVER['REQUEST_URI'])[0]))-1]);		
 		}elseif($_SERVER['REQUEST_METHOD'] == "GET" && preg_match('/^(.*)\/scim\/v2\/ServiceProviderConfigs?$/', @explode("?", $_SERVER['REQUEST_URI'])[0])){
 			$scim20->showServiceProviderConfig();
+		}elseif(preg_match('/^(.*)\/scim\/v2\/(Users|Groups|ServiceProviderConfig|ServiceProviderConfigs)(.*)$/', @explode("?", $_SERVER['REQUEST_URI'])[0])){
+			$scim20->throwError(405, "The endpoint does not support the provided method.");
+		}elseif(preg_match('/^(.*)\/scim\/v2\/(.*)$/', @explode("?", $_SERVER['REQUEST_URI'])[0])){
+			$scim20->throwError(400, "The requested endpoint is not available.");
 		}
 	}
 }
