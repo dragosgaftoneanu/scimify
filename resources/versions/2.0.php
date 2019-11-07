@@ -141,7 +141,7 @@ class SCIM20
 			"created" => gmdate("c", $metadata['created']),
 			"lastModified" => gmdate("c", $metadata['lastUpdated']),
 			"version" => $etag,
-			"location" => (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . str_replace("index.php", "", $_SERVER['SCRIPT_NAME']) . "scim/v1/Users/" . $userID
+			"location" => (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . str_replace("index.php", "", $_SERVER['SCRIPT_NAME']) . "scim/v2/Users/" . $userID
 		);
 
 		if($isIncluded == '')
@@ -493,7 +493,7 @@ class SCIM20
 			"created" => gmdate("c", $metadata['created']),
 			"lastModified" => gmdate("c", $metadata['lastUpdated']),
 			"version" => $etag,
-			"location" => (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . str_replace("index.php", "", $_SERVER['SCRIPT_NAME']) . "scim/v1/Groups/" . $groupID
+			"location" => (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . str_replace("index.php", "", $_SERVER['SCRIPT_NAME']) . "scim/v2/Groups/" . $groupID
 		);
 
 		if($isIncluded == '')
