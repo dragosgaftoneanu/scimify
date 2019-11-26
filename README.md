@@ -24,6 +24,11 @@ If you would like to find out more details about the methods used, check out the
 * [Methods ~ database queries](https://github.com/dragosgaftoneanu/scimify/wiki/Methods-~-database-queries)
 * [Methods ~ SCIM queries](https://github.com/dragosgaftoneanu/scimify/wiki/Methods-~-SCIM-queries)
 
+## Examples of requests and responses
+If you would like to check how the requests from Okta look like and how scimify responds to them, check out the following articles:
+* [SCIM 1.1](https://developer.okta.com/docs/reference/scim/scim-11/)
+* [SCIM 2.0](https://developer.okta.com/docs/reference/scim/scim-20/)
+
 ## Runscope
 When submitting your application to OIN Manager, it's required to provide Runscope results of your SCIM server. For reference, you can find below the Runscope results for scimify:
 * [Okta SCIM 1.1 Spec Test](https://www.runscope.com/radar/kunxznp7attx/865d90f6-a44b-45c9-9540-e10237cbee32/history/cc2a55e7-8689-45ce-a5d3-a883f5455d8e)
