@@ -13,7 +13,7 @@ class Database
 	
 	function __construct()
 	{
-		$this->conn = mysqli_connect(SCIMIFY_DB_SERVER, SCIMIFY_DB_USERNAME, SCIMIFY_DB_PASSWORD, SCIMIFY_DB_NAME) or die("Error: Advanced SCIM Server could not connect to the provided database.");
+		$this->conn = mysqli_connect(SCIMIFY_DB_SERVER, SCIMIFY_DB_USERNAME, SCIMIFY_DB_PASSWORD, SCIMIFY_DB_NAME) or die("Error: scimify could not connect to the provided database.");
 		
 		$this->conn->query("CREATE TABLE IF NOT EXISTS `memberships` (`ID` int(11) NOT NULL AUTO_INCREMENT, `userID` varchar(36) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL, `groupID` varchar(36) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL, PRIMARY KEY (`ID`)) ENGINE=MyISAM DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;");
 		$this->conn->query("CREATE TABLE IF NOT EXISTS `resources` (`ID` varchar(36) COLLATE utf8_unicode_ci NOT NULL, `created` int(11) NOT NULL, `lastUpdated` int(11) NOT NULL, `scimType` text COLLATE utf8_unicode_ci NOT NULL, `type` int(11) NOT NULL, PRIMARY KEY (`ID`)) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;");
