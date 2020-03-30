@@ -527,10 +527,6 @@ class SCIM11
 		$requestBody = json_decode($requestBody, 1);
 		$groupAttributes = $this->db->getResourceAttributes($groupID);
 		
-		if($requestBody['displayName'] != "")
-			if($this->db->getGroupID($requestBody['displayName'], "1.1") != $groupID)
-				exit($this->throwError(400, "The group name is already present."));
-		
 		foreach($requestBody as $key => $value)
 		{
 			if(in_array($key,array('schemas', 'id')))
@@ -571,10 +567,6 @@ class SCIM11
 	{
 		$this->parseGroupPayload($requestBody, true);
 		$requestBody = json_decode($requestBody, 1);
-		
-		if($requestBody['displayName'] != "")
-			if($this->db->getGroupID($requestBody['displayName'], "1.1") != $groupID)
-				exit($this->throwError(400, "The group name is already present."));
 		
 		$this->db->deleteResourceSchemas($groupID);
 		$this->db->deleteResourceAttributes($groupID);

@@ -604,10 +604,6 @@ class SCIM20
 		$this->parseGroupPayload($requestBody, true);
 		$requestBody = json_decode($requestBody, 1);
 		
-		if($requestBody['displayName'] != "")
-			if($this->db->getGroupID($requestBody['displayName'], "2.0") != $groupID)
-				exit($this->throwError(400, "The group name is already present."));
-		
 		$this->db->deleteResourceSchemas($groupID);
 		$this->db->deleteResourceAttributes($groupID);
 		
