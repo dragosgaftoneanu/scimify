@@ -28,10 +28,3 @@ If you would like to find out more details about the methods used, check out the
 If you would like to check how the requests from Okta look like and how scimify responds to them, check out the following articles:
 * [SCIM 1.1](https://developer.okta.com/docs/reference/scim/scim-11/)
 * [SCIM 2.0](https://developer.okta.com/docs/reference/scim/scim-20/)
-
-## Runscope
-When submitting your application to OIN Manager, it's required to provide Runscope results of your SCIM server. For reference, you can find below the Runscope results for scimify:
-* [Okta SCIM 1.1 Spec Test](https://www.runscope.com/radar/kunxznp7attx/865d90f6-a44b-45c9-9540-e10237cbee32/history/cc2a55e7-8689-45ce-a5d3-a883f5455d8e)
-* [Okta SCIM 1.1 CRUD Test](https://www.runscope.com/radar/kunxznp7attx/3be61ab6-411b-48ca-9fe5-9a5cb4e4b196/history/01fe504b-c8a4-42df-b54d-c366a8f22e4b)
-* [Okta SCIM 2.0 Spec Test](https://www.runscope.com/radar/kunxznp7attx/bf55d1b0-b6cc-4729-bd83-7cae09b5c87e/history/8ef1ab21-0036-4002-a1e0-915b34607100)
-* [Okta SCIM 2.0 CRUD Test](https://www.runscope.com/radar/kunxznp7attx/3be61ab6-411b-48ca-9fe5-9a5cb4e4b196/history/237264e3-94a6-448b-a90c-06f16612c7f5)
