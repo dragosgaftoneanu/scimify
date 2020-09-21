@@ -16,10 +16,6 @@ scimify is a PHP application that supports both SCIM 1.1 and SCIM 2.0 servers wi
 ## Documentation
 scimify works by parsing the request received from the identity provider and storing the body as per the SCIM 1.1 and SCIM 2.0 standards available [here](http://www.simplecloud.info/#Resources).
 
-You can find below the deployment guides for SCIM 1.1 and SCIM 2.0 using an integrator organization:
-* [Deploying scimify with SCIM 1.1 templates](https://github.com/dragosgaftoneanu/scimify/wiki/Deploying-scimify-with-SCIM-1.1-templates)
-* [Deploying scimify with SCIM 2.0 templates](https://github.com/dragosgaftoneanu/scimify/wiki/Deploying-scimify-with-SCIM-2.0-templates)
-
 If you would like to find out more details about the methods used, check out the following wiki articles:
 * [Methods ~ database queries](https://github.com/dragosgaftoneanu/scimify/wiki/Methods-~-database-queries)
 * [Methods ~ SCIM queries](https://github.com/dragosgaftoneanu/scimify/wiki/Methods-~-SCIM-queries)
