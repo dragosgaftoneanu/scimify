@@ -564,13 +564,7 @@ class SCIM20
 						if($val['op'] == "replace")
 						{
 							foreach($val['value'] as $a => $v)
-							{
-								if($a == "displayName")
-									if($this->db->getGroupID($v, "2.0") != $groupID)
-									{
-										exit($this->throwError(400, "Could not modify displayName. There is already an existing group " . $a . " with the same name."));
-									}
-							
+							{							
 								$schemas = $this->db->getResourceSchemas($groupID);
 								
 								$this->db->deleteResourceAttribute($groupID, $a);
@@ -581,11 +575,7 @@ class SCIM20
 							}
 						}elseif($val['op'] == "add")
 							foreach($val['value'] as $a => $v)
-							{
-								if($a == "displayName")
-									if($this->db->getGroupID($v, "2.0") != $groupID)
-										exit($this->throwError(400, "Could not modify displayName. There is already an existing group " . $a . " with the same name."));
-								
+							{								
 								$this->db->addResourceAttribute($groupID, $a, json_encode($v));
 							}
 						elseif($val['op'] == "remove")
