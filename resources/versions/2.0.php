@@ -1,11 +1,9 @@
 <?php
 /**
  * scimify
- * Author: Dragos Gaftoneanu <dragos.gaftoneanu@okta.com>
+ * Author: Dragos Gaftoneanu <dragos.gaftoneanu@gmail.com>
  * 
- * Disclaimer: This SCIM server was built in order to simulate and troubleshoot different SCIM use-cases and not to be used in production. The script is provided AS IS 
- * without warranty of any kind. Okta disclaims all implied warranties including, without limitation, any implied warranties of fitness for a particular purpose. We highly
- * recommend testing scripts in a preview environment if possible.
+ * Disclaimer: This SCIM server was built in order to simulate and troubleshoot different SCIM use-cases and not to be used in production.
  */
 class SCIM20
 {
@@ -579,7 +577,15 @@ class SCIM20
 								$this->db->addResourceAttribute($groupID, $a, json_encode($v));
 							}
 						elseif($val['op'] == "remove")
-							$this->db->deleteResourceAttribute($groupID, $a);
+						{
+							if(substr($val['path'],0,7) == "members")
+							{
+								preg_match('/[a-f0-9]{8}\-[a-f0-9]{4}\-[a-f0-9]{4}\-[a-f0-9]{4}\-[a-f0-9]{12}/', $val['path'],$matches);
+								$this->db->deleteGroupMembership($groupID, $matches[0]);
+							}else{
+								$this->db->deleteResourceAttribute($groupID, $a);
+							}
+						}
 					}
 				}
 		}

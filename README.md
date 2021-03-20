@@ -1,10 +1,10 @@
 # scimify
-scimify is a PHP application that supports both SCIM 1.1 and SCIM 2.0 servers with operations for /Users, /Groups and /ServiceProviderConfig endpoints. This application was created in order to test SCIM capabilities with Okta SCIM enabled applications.
+scimify is a PHP application that supports both SCIM 1.1 and SCIM 2.0 servers with operations for /Users, /Groups and /ServiceProviderConfig endpoints. This application was created in order to test SCIM capabilities with Okta SCIM enabled applications. Please note that SCIM with On Premises Provisioning (OPP) is not supported.
 
-:information_source: **Disclaimer:** This is not an official Okta product and, as such, does not qualify for Okta Support. If you have a question about scimify, please check the Frequently Asked Questions page available [here](https://github.com/dragosgaftoneanu/scimify/wiki/Frequently-Asked-Questions). If you don't find an answer or, if you discover a bug in the SCIM server, please open an issue in this repository.
+:information_source: **Disclaimer:** This SCIM server was built in order to simulate and troubleshoot different SCIM use-cases and not to be used in production.
 
 ## Requirements
-* An Okta preview account, called an _organization_ (you can sign up for a free [integrator organization](https://www.okta.com/integrate/signup/))
+* An Okta account, called an _organization_ (you can sign up for a free [developer organization](https://developer.okta.com/signup/))
 * A local web server that runs PHP 7.0 with MySQLi extension and mod_rewrite module
 * [ngrok](https://ngrok.com/) in order to inspect the requests and responses
 
